@@ -52,15 +52,7 @@ function HomepageHeader() {
           </Link>
         </motion.div>
 
-        {/* Decorative bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 text-gray-50 dark:text-gray-900" viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path
-              fill="currentColor"
-              d="M0,50 C150,100 350,0 500,50 C650,100 850,0 1000,50 C1150,100 1350,0 1440,50 L1440,100 L0,100 Z"
-            />
-          </svg>
-        </div>
+      
       </div>
     </header>
   );
