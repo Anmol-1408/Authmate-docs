@@ -3,31 +3,46 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 import { motion } from 'framer-motion';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <header className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-32 text-white dark:text-gray-100">
+    <header className="relative overflow-hidden
+      bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700
+      dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+      py-32 text-white dark:text-gray-100"
+    >
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl" />
-      </div>
+      <motion.div
+        className="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl
+          dark:bg-gray-700 dark:opacity-20"
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
+      />
+      <motion.div
+        className="absolute -bottom-40 -left-40 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl
+          dark:bg-gray-700 dark:opacity-20"
+        animate={{ rotate: -360 }}
+        transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
+      />
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
           className="max-w-3xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6
+            bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400"
+          >
             {siteConfig.title}
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 dark:opacity-80 leading-relaxed">
+          <p className="text-xl md:text-2xl opacity-90 dark:opacity-80 leading-relaxed
+            dark:text-gray-300"
+          >
             {siteConfig.tagline}
           </p>
         </motion.div>
@@ -38,21 +53,36 @@ function HomepageHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <Link
-            className="bg-white text-blue-700 hover:bg-blue-50 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
-            to="/docs/intro"
-          >
-            Get Started with {siteConfig.title}
-          </Link>
-          <Link
-            className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
-            to="/docs"
-          >
-            View Documentation
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              className="bg-white text-blue-700 hover:bg-blue-100
+                dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600
+                font-semibold py-4 px-8 rounded-lg shadow-md transition-all duration-300"
+              to="/docs/intro"
+            >
+              Get Started with {siteConfig.title}
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              className="bg-transparent border-2 border-white text-white hover:bg-white/10
+                dark:border-gray-300 dark:text-gray-300 dark:hover:bg-gray-700
+                font-semibold py-4 px-8 rounded-lg shadow-md transition-all duration-300"
+              to="/docs/intro"
+            >
+              View Documentation
+            </Link>
+          </motion.div>
         </motion.div>
 
-      
+        {/* Scroll cue */}
+        <motion.div
+          className="mt-12"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          <span className="text-white dark:text-gray-300 text-sm select-none">Scroll down ↓</span>
+        </motion.div>
       </div>
     </header>
   );
@@ -60,17 +90,26 @@ function HomepageHeader() {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
+
   return (
     <Layout
       title={`${siteConfig.title}`}
       description="Secure authentication docs for developers"
     >
       <HomepageHeader />
-      <main className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+      <main className="relative
+        bg-gradient-to-b from-gray-50 to-white
+        dark:from-gray-900 dark:to-gray-800
+        py-20"
+      >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 opacity-5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500 opacity-5 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 opacity-5 rounded-full blur-3xl
+            dark:bg-blue-800 dark:opacity-20"
+          />
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500 opacity-5 rounded-full blur-3xl
+            dark:bg-indigo-800 dark:opacity-20"
+          />
         </div>
 
         <motion.div

@@ -1,22 +1,25 @@
 ---
-id: Set up your AuthMate account
+id: setup-your-authmate-account
 title: Set up your AuthMate account
 sidebar_position: 2
 ---
 
 # Set up your AuthMate account
 
-Before you can start integrating AuthMate into your application, you need to create a AuthMate account and set up a new project in the AuthMate Dashboard. This guide will walk you through those steps.
+Before integrating AuthMate into your application, you need to create an AuthMate account and set up a new project in the AuthMate Dashboard. This guide will walk you through these steps.
 
-## Sign into AuthMate
+## Sign in to AuthMate
 
-Create a AuthMate account or sign into the AuthMate Dashboard.
+Create an AuthMate account or sign in to the [AuthMate Dashboard](https://authmate.xyz/auth/login).
 
-## Create a AuthMate project
+## Create an AuthMate project
 
-After signing in you'll be redirected to the AuthMate Dashboard. To create a new project, select the Create project button. You'll be redirected to the interactive authentication project setup form.
-Once you are in the interactive authentication setup form, you will be asked to build your authentication flow.
+After signing in, you will be redirected to the AuthMate Dashboard. To create a new project, select the **Create project** button. This will take you to the interactive authentication project setup form.
+
+In the setup form, you will be guided to build your authentication flow according to your requirements.
 
 ## Integrate AuthMate into your application
 
-Now that your project is created in the AuthMate Dashboard, you are provided API key for that particular project. you can integrate it into your codebase using API key. To integrate AuthMate into your application, use one of our quickstarts.
+Once your project is created in the AuthMate Dashboard, you will receive an API key for that specific project. Use this API key to integrate AuthMate into your codebase.
+
+To get started quickly, use one of our available quickstart guides on [authmate.xyz](https://authmate.xyz).

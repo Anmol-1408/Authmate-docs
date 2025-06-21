@@ -1,42 +1,41 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
-import styles from './styles.module.css';
 import { motion } from 'framer-motion';
 
 const FeatureList = [
   {
     title: 'Quick Integration',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    img: '/img/QuickIntegration.png',
     description: (
       <>
-        Effortless API integration with full guides to get your authentication system live fast.
+        Seamless integration with your existing systems, allowing you to focus on building features.
       </>
     ),
-    color: 'from-blue-500 to-blue-600',
+    color: 'bg-gradient-to-br from-yellow-500 to-yellow-600 dark:from-yellow-400 dark:to-yellow-500',
   },
   {
     title: 'Powerful Dashboard',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    img: '/img/PowerfulDashboard.png',
     description: (
       <>
-        Manage users easily across all your projects from a single, intuitive dashboard.
+        A user-friendly dashboard to manage your authentication settings and monitor usage.
       </>
     ),
-    color: 'from-indigo-500 to-indigo-600',
+    color: 'bg-gradient-to-br from-green-500 to-green-600 dark:from-green-400 dark:to-green-500',
   },
   {
     title: 'Enterprise Security',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    img: '/img/EnterpriseSecurity.png',
     description: (
       <>
         Bank-grade security with unique API keys for each project to enhance control.
       </>
     ),
-    color: 'from-purple-500 to-purple-600',
+    color: 'bg-gradient-to-br from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-500',
   },
 ];
 
-function Feature({ Svg, title, description, color, index }) {
+function Feature({ title, description, color, index, img }) {
   return (
     <motion.div 
       className="col col--4"
@@ -46,17 +45,21 @@ function Feature({ Svg, title, description, color, index }) {
       viewport={{ once: true }}
     >
       <div className="group relative">
-        <div className={clsx(
-          'absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300',
-          color
-        )} />
-        <div className="relative p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 hover:shadow-xl">
-          <div className="text--center mb-6">
-            <div className="inline-block p-4 rounded-xl bg-gray-50 dark:bg-gray-800 mb-4">
-              <Svg className={clsx(styles.featureSvg, 'w-16 h-16')} role="img" />
-            </div>
+        <div
+          className={clsx(
+            'absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300',
+            color
+          )}
+        />
+        <div className="relative p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-transparent transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900">
+          <div className="text-center mb-6">
+            <img
+              src={img}
+              alt={title}
+              className="w-28 h-28 md:w-32 md:h-32 object-contain mx-auto mb-4"
+            />
           </div>
-          <div className="text--center">
+          <div className="text-center">
             <Heading as="h3" className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
               {title}
             </Heading>
@@ -72,7 +75,7 @@ function Feature({ Svg, title, description, color, index }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section className="flex items-center py-8 w-full">
       <div className="container">
         <div className="row gap-8">
           {FeatureList.map((props, idx) => (
