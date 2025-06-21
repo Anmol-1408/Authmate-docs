@@ -6,13 +6,19 @@ sidebar_position: 1
 
 # Welcome to AuthMate SDK Documentation
 
-AuthMate is a powerful authentication SDK designed to simplify user authentication workflows in your applications.
+**AuthMate** is a powerful and developer-friendly authentication SDK designed to simplify secure user management in your applications.
 
-This documentation will guide you through installing, integrating, and using AuthMate SDK with detailed API references and examples.
+---
 
-AuthMate supports:
-- API key validation
-- User registration and login (JWT, API key, session)
-- Magic link authentication
+## What AuthMate Supports
 
-Let's get started!
+- **API Key validation**  
+- **User registration and login** using:
+  - JWT
+  - API key
+  - Session-based authentication
+- **Magic Link authentication**
+
+---
+
+Continue to [Setup your account](./setup-your-authmate-account) to quickly integrate AuthMate into your project.

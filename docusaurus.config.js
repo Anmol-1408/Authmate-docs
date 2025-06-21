@@ -42,27 +42,13 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/AuthMate-Dev/Authmate-docs/edit/main/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/AuthMate-Dev/Authmate-docs/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -86,9 +72,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+
           {
             href: 'https://github.com/AuthMate-Dev',
             label: 'GitHub',
@@ -108,7 +94,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Docs',
                 to: '/docs/intro',
               },
             ],
@@ -131,7 +117,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: 'https://authmate.xyz/blogs',
               },
               {
                 label: 'GitHub',
