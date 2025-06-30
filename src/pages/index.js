@@ -4,17 +4,21 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import { motion } from 'framer-motion';
+import Head from '@docusaurus/Head';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <header className="relative overflow-hidden
+    <header className="relative overflow-hidden min-h-screen
       bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700
       dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-      py-32 text-white dark:text-gray-100"
+      text-white dark:text-gray-100"
     >
-      {/* Background decorative elements */}
+      {/* Optional overlay for readability */}
+      <div className="absolute inset-0 bg-black/5 dark:bg-black/30 z-0" />
+
+      {/* Background decorative motion elements */}
       <motion.div
         className="absolute -top-40 -right-40 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl
           dark:bg-gray-700 dark:opacity-20"
@@ -28,7 +32,15 @@ function HomepageHeader() {
         transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
       />
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      {/* Background image with improved visibility */}
+      <img
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-60 z-0"
+        src="/img/hero.png"
+        alt="Background pattern"
+      />
+
+      {/* Hero content centered */}
+      <div className="container mx-auto px-4 text-center relative z-10 flex flex-col justify-center items-center min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -40,13 +52,12 @@ function HomepageHeader() {
           >
             {siteConfig.title}
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 dark:opacity-80 leading-relaxed
-            dark:text-gray-300"
-          >
+          <p className="text-xl md:text-2xl opacity-90 dark:opacity-80 leading-relaxed dark:text-gray-300">
             {siteConfig.tagline}
           </p>
         </motion.div>
 
+        {/* CTA Buttons */}
         <motion.div
           className="mt-12 flex flex-col sm:flex-row justify-center gap-6"
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +67,7 @@ function HomepageHeader() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
               className="bg-white text-blue-700 hover:bg-blue-100
-                dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600
+                dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500
                 font-semibold py-4 px-8 rounded-lg shadow-md transition-all duration-300"
               to="/docs/intro"
             >
@@ -65,7 +76,7 @@ function HomepageHeader() {
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link
-              className="bg-transparent border-2 border-white text-white hover:bg-white/10
+              className="bg-gray-600 border-2 border-gray-400 text-white hover:bg-gray-700
                 dark:border-gray-300 dark:text-gray-300 dark:hover:bg-gray-700
                 font-semibold py-4 px-8 rounded-lg shadow-md transition-all duration-300"
               to="/docs/intro"
@@ -77,7 +88,7 @@ function HomepageHeader() {
 
         {/* Scroll cue */}
         <motion.div
-          className="mt-12"
+          className="mt-16"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
@@ -92,51 +103,58 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout
-      title={`${siteConfig.title}`}
-      description="Secure authentication docs for developers"
-    >
-      <HomepageHeader />
-      <main className="relative
-        bg-gradient-to-b from-gray-50 to-white
-        dark:from-gray-900 dark:to-gray-800
-        py-20"
+    <>
+      <Head>
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1f2937" media="(prefers-color-scheme: dark)" />
+      </Head>
+
+      <Layout
+        title={`${siteConfig.title}`}
+        description="Secure authentication docs for developers"
       >
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 opacity-5 rounded-full blur-3xl
-            dark:bg-blue-800 dark:opacity-20"
-          />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500 opacity-5 rounded-full blur-3xl
-            dark:bg-indigo-800 dark:opacity-20"
-          />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="container mx-auto px-4 relative z-10"
+        <HomepageHeader />
+        <main className="relative
+          bg-gradient-to-b from-gray-50 to-white
+          dark:from-gray-900 dark:to-gray-800
+          py-20"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Choose {siteConfig.title}?
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Discover the features that make our authentication solution stand out from the rest
-            </p>
-          </motion.div>
+          {/* Background decorative elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 opacity-5 rounded-full blur-3xl
+              dark:bg-blue-800 dark:opacity-20"
+            />
+            <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500 opacity-5 rounded-full blur-3xl
+              dark:bg-indigo-800 dark:opacity-20"
+            />
+          </div>
 
-          <HomepageFeatures />
-        </motion.div>
-      </main>
-    </Layout>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="container mx-auto px-4 relative z-10"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Why Choose {siteConfig.title}?
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Discover the features that make our authentication solution stand out from the rest
+              </p>
+            </motion.div>
+
+            <HomepageFeatures />
+          </motion.div>
+        </main>
+      </Layout>
+    </>
   );
 }

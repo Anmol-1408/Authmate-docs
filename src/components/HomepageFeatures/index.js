@@ -38,7 +38,7 @@ const FeatureList = [
 function Feature({ title, description, color, index, img }) {
   return (
     <motion.div 
-      className="col col--4"
+      className="flex-1 max-w-sm min-w-[280px]"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
@@ -75,9 +75,9 @@ function Feature({ title, description, color, index, img }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className="flex items-center py-8 w-full">
-      <div className="container">
-        <div className="row gap-8">
+    <section className="flex justify-center py-12 w-full">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-8">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} index={idx} />
           ))}
